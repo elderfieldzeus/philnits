@@ -20,8 +20,8 @@ This repository hosts an online PhilNITS FE AM Mock Examination, developed using
 1. **Clone the repository:**
 
    ```sh
-   git clone https://github.com/elderfieldzeus/philnits-mock-exam.git
-   cd philnits-mock-exam
+   git clone https://github.com/elderfieldzeus/philnits.git
+   cd philnits
    ```
 
 2. **Install dependencies:**
