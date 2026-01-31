@@ -79,7 +79,7 @@ export default function Quiz() {
 
     setTotalTime(totalTime)
     setTimeRemaining(totalTime)
-  }, [])
+  }, [devModeYear])
 
   const endQuiz = useCallback(() => {
     setQuizCompleted(true)

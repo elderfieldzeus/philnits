@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
+import HeaderLink from "./components/HeaderLink";
 import Footer from "./components/Footer";
 
 const poppins = Poppins({
@@ -28,9 +29,7 @@ export default function RootLayout({
       <body className={`${poppins.variable} font-sans antialiased min-h-screen flex flex-col`}>
         <header className="bg-primary text-primary-foreground px-6 py-4">
           <div className="container mx-auto">
-            <a href="/" className="text-lg font-bold hover:opacity-90 block">
-              PhilNITS FE AM Mock Exam
-            </a>
+            <HeaderLink />
           </div>
         </header>
         <main className="flex-1 p-4 md:px-6">
