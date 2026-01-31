@@ -1,3 +1,4 @@
+import _2025 from '@/assets/data/2025/index.json'
 import _2024 from '@/assets/data/2024/index.json'
 import _2023 from '@/assets/data/2023/index.json'
 import _2022 from '@/assets/data/2022/index.json'
@@ -10,10 +11,13 @@ export interface QuizQuestion {
   question: string
   options: string[]
   correctAnswer: number
-  solution?: string // New optional field for markdown solution
+  solution?: string
+  choiceImage?: string
+  compositeImage?: string
 }
 
 export const quizData: QuizQuestion[] = [
+  ..._2025,
   ..._2024,
   ..._2023,
   ..._2022,

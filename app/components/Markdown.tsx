@@ -1,5 +1,6 @@
 import MDEditor from '@uiw/react-md-editor'
 import React from 'react'
+import Image from 'next/image'
 import 'katex/dist/katex.css';
 import { MarkdownPreviewProps } from "@uiw/react-markdown-preview/nohighlight";
 import rehypeKatex from "rehype-katex";
@@ -19,6 +20,19 @@ const DEFAULT_PREVIEW_OPTIONS: MarkdownPreviewProps = {
 			}
 
 			return <div {...rest} />;
+		},
+		img: ({ src, alt, ...rest }) => {
+			if (!src) return null;
+			return (
+				<Image
+					src={`/${src}`}
+					alt={alt || 'Question diagram'}
+					width={600}
+					height={400}
+					className="question-diagram my-4 mx-auto border border-gray-200 rounded-lg"
+					{...rest}
+				/>
+			);
 		},
 	},
 };

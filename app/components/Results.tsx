@@ -5,6 +5,7 @@ import React from "react"
 import Markdown from "@/components/Markdown"
 import Credits from "@/components/Credits"
 import ScrollToTop from "@/components/ScrollToTop"
+import Image from "next/image"
 
 interface ResultsProps {
   quizData: QuizQuestion[]
@@ -62,9 +63,38 @@ export default function Results({ quizData, userAnswers, onRestart, onNewQuiz, t
             Question {index + 1} of {quizData.length}
           </span>
           <h2 className="font-bold text-sm my-4">{question.id}</h2>
-          <div className="font-medium">
-            <Markdown>{question.question}</Markdown>
-          </div>
+          
+          {/* Composite Image: Show only the image (no question text) */}
+          {question.compositeImage ? (
+            <div className="border border-gray-200 rounded-lg overflow-hidden my-4">
+              <Image
+                src={`/${question.compositeImage}`}
+                alt="Question and choices"
+                width={800}
+                height={600}
+                className="w-full h-auto"
+              />
+            </div>
+          ) : (
+            /* Standard question or question with diagram in markdown */
+            <div className="font-medium">
+              <Markdown>{question.question}</Markdown>
+            </div>
+          )}
+          
+          {/* Choice Image: Show after question text */}
+          {question.choiceImage && !question.compositeImage && (
+            <div className="border border-gray-200 rounded-lg overflow-hidden my-4">
+              <Image
+                src={`/${question.choiceImage}`}
+                alt="Answer choices"
+                width={800}
+                height={400}
+                className="w-full h-auto"
+              />
+            </div>
+          )}
+          
           <p className="font-bold my-1">
             {userAnswers[index] === undefined ? <span className="text-red-600">Not Answered</span> : 
             (userAnswers[index] === question.correctAnswer ? <span className="text-green-600">Correct</span> : 

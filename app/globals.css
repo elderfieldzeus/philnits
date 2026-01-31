@@ -18,6 +18,13 @@ body {
   white-space: pre-line;
 }
 
+/* Question diagram styling */
+.question-diagram {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
