@@ -1,4 +1,4 @@
-name: Deploy PhilNITS (Static Export)
+name: Deploy Next.js to GitHub Pages
 
 on:
   push:
@@ -11,46 +11,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout repository
-      - name: Checkout code
-        uses: actions/checkout@v4
+      # Checkout repo
+      - uses: actions/checkout@v4
 
-      # Setup Node.js
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      # Setup Node
+      - uses: actions/setup-node@v4
         with:
           node-version: 18
           cache: npm
 
       # Install dependencies
-      - name: Install dependencies
-        run: npm ci
+      - run: npm ci
 
-      # Build static export
-      - name: Build project (static export)
-        run: npm run build
+      # Build and export static site
+      - run: npm run build:export
 
-      # Test static export locally (optional)
-      - name: List out folder
-        run: ls -la out
-
-      # Upload via tar-over-SSH
-      - name: Upload via tar-over-SSH
-        run: |
-          sudo apt-get update && sudo apt-get install -y sshpass
-          cd out
-          sshpass -p "${{ secrets.DCISM_PASSWORD }}" \
-            ssh -o StrictHostKeyChecking=no -p ${{ secrets.DCISM_PORT }} \
-            ${{ secrets.DCISM_EMAIL }}@${{ secrets.DCISM_HOST }} \
-            "mkdir -p ~/philnits.dcism.org && tar xzf - -C ~/philnits.dcism.org" < <(tar czf - .)
-      
-      # Optional: show deployed files
-      - name: List files on server
-        uses: appleboy/ssh-action@v1.2.0
+      # Deploy /out to GitHub Pages
+      - uses: peaceiris/actions-gh-pages@v3
         with:
-          host: ${{ secrets.DCISM_HOST }}
-          username: ${{ secrets.DCISM_EMAIL }}
-          password: ${{ secrets.DCISM_PASSWORD }}
-          port: ${{ secrets.DCISM_PORT }}
-          script: |
-            ls -la ~/philnits.dcism.org
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./out

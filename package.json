@@ -11,7 +11,9 @@
     "status": "npx pm2 status",
     "startup": "npx pm2 startup",
     "save": "npx pm2 save",
-    "restart": "next build && npx pm2 restart philnits"
+    "restart": "next build && npx pm2 restart philnits",
+    "export": "next export",
+    "build:export": "npm run build && npm run export"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.2",
