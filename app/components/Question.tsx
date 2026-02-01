@@ -49,7 +49,7 @@ export default function Question({
         </div>
         <div className="grid grid-cols-2 gap-2">
           {options.map((option, index) => (
-            <Button key={index} variant="outline" className="text-lg font-semibold hover:bg-primary/10 hover:text-foreground" onClick={() => onAnswer(index)}>
+            <Button key={index} variant="outline" className="bg-white dark:bg-background text-lg font-semibold hover:bg-primary/10 hover:text-foreground" onClick={() => onAnswer(index)}>
               {option}
             </Button>
           ))}
@@ -88,7 +88,7 @@ export default function Question({
         </div>
         <div className="grid grid-cols-2 gap-2">
           {options.map((option, index) => (
-            <Button key={index} variant="outline" className="text-lg font-semibold hover:bg-primary/10 hover:text-foreground" onClick={() => onAnswer(index)}>
+            <Button key={index} variant="outline" className="bg-white dark:bg-background text-lg font-semibold hover:bg-primary/10 hover:text-foreground" onClick={() => onAnswer(index)}>
               {option}
             </Button>
           ))}
@@ -119,7 +119,7 @@ export default function Question({
       </div>
       <div className="grid grid-cols-1 gap-2">
         {options.map((option, index) => (
-          <Button key={index} variant="outline" className="justify-start text-left text-wrap py-4 h-auto font-normal hover:bg-primary/10 hover:text-foreground" onClick={() => onAnswer(index)}>
+          <Button key={index} variant="outline" className="bg-white dark:bg-background justify-start text-left text-wrap py-4 h-auto font-normal hover:bg-primary/10 hover:text-foreground" onClick={() => onAnswer(index)}>
             <Markdown>{option}</Markdown>
           </Button>
         ))}
