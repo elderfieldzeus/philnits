@@ -20,12 +20,6 @@
 # production
 /build
 
-# misc
-temp/
-docs/
-.agent/
-.DS_Store
-*.pem
 
 # debug
 npm-debug.log*
@@ -42,3 +36,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# misc
+temp/
+docs/
+.agent/
+.DS_Store
+*.pem
