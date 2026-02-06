@@ -1,10 +1,10 @@
-import _2025 from '@/assets/data/2025/index.json'
-import _2024 from '@/assets/data/2024/index.json'
-import _2023 from '@/assets/data/2023/index.json'
-import _2022 from '@/assets/data/2022/index.json'
-import _2020 from '@/assets/data/2020/index.json'
-import _2021 from '@/assets/data/2021/index.json'
-import _2019 from '@/assets/data/2019/index.json'
+import _2025 from '@/assets/data/2025'
+import _2024 from '@/assets/data/2024'
+import _2023 from '@/assets/data/2023'
+import _2022 from '@/assets/data/2022'
+import _2020 from '@/assets/data/2020'
+import _2021 from '@/assets/data/2021'
+import _2019 from '@/assets/data/2019'
 
 export interface QuizQuestion {
   id: string
