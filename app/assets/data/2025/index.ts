@@ -796,7 +796,18 @@ the members increase from six (6) people to ten (10) people, by how many times d
 number of paths that are required for communicating information increase?`,
     options: ["1.5", "2.5", "3", "6"],
     correctAnswer: 2,
-    solution: "",
+    solution: `1. Identify the Pattern: "One-to-One" = Full Mesh
+    The question specifies communication on a *one-to-one* basis among all members. 
+    In technical terms, this describes a Full Mesh Topology or a Complete Graph (Kn).
+    
+    If Person A talks to Person B, that is the same path as B talking to A.
+    Since the order doesn't change the path, this is a Combination problem — n C 2.
+
+    ![Image](Files/2025/solutions/FE_A-54-1.png)
+    ![Image](Files/2025/solutions/FE_A-54-2.png)
+    
+    Answer: c) 3
+`,
   },
   {
     id: "2025_FE-A_55",
