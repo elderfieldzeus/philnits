@@ -1,20 +1,20 @@
-import { Button } from "@/components/ui/button"
-import Markdown from "@/components/Markdown"
-import Image from "next/image"
-import { assetPath } from "@/lib/utils"
+import { Button } from "@/components/ui/button";
+import Markdown from "@/components/Markdown";
+import Image from "next/image";
+import { assetPath } from "@/lib/utils";
 
 interface QuestionProps {
-  id: string
-  question: string
-  options: string[]
-  onAnswer: (selectedOption: number) => void
-  onGoBack: () => void
-  onSubmit: () => void
-  currentQuestionNumber: number
-  totalQuestions: number
-  isFirstQuestion: boolean
-  choiceImage?: string
-  compositeImage?: string
+  id: string;
+  question: string;
+  options: string[];
+  onAnswer: (selectedOption: number) => void;
+  onGoBack: () => void;
+  onSubmit: () => void;
+  currentQuestionNumber: number;
+  totalQuestions: number;
+  isFirstQuestion: boolean;
+  choiceImage?: string;
+  compositeImage?: string;
 }
 
 export default function Question({
@@ -47,9 +47,14 @@ export default function Question({
             className="w-full h-auto"
           />
         </div>
-        <div className="grid grid-cols-2 gap-2">
+        <div className="grid grid-cols-1 gap-2">
           {options.map((option, index) => (
-            <Button key={index} variant="outline" className="bg-white dark:bg-background text-lg font-semibold hover:bg-primary/10 hover:text-foreground" onClick={() => onAnswer(index)}>
+            <Button
+              key={index}
+              variant="outline"
+              className="bg-white dark:bg-background justify-start text-left text-wrap py-4 h-auto font-normal hover:bg-primary/10 hover:text-foreground"
+              onClick={() => onAnswer(index)}
+            >
               {option}
             </Button>
           ))}
@@ -58,12 +63,10 @@ export default function Question({
           <Button onClick={onGoBack} disabled={isFirstQuestion}>
             Go Back
           </Button>
-          <Button onClick={onSubmit}>
-            Submit Early
-          </Button>
+          <Button onClick={onSubmit}>Submit Early</Button>
         </div>
       </div>
-    )
+    );
   }
 
   // CASE 2: Choice Diagram (Question text + choice images + letter buttons)
@@ -86,9 +89,14 @@ export default function Question({
             className="w-full h-auto"
           />
         </div>
-        <div className="grid grid-cols-2 gap-2">
+        <div className="grid grid-cols-1 gap-2">
           {options.map((option, index) => (
-            <Button key={index} variant="outline" className="bg-white dark:bg-background text-lg font-semibold hover:bg-primary/10 hover:text-foreground" onClick={() => onAnswer(index)}>
+            <Button
+              key={index}
+              variant="outline"
+              className="bg-white dark:bg-background justify-start text-left text-wrap py-4 h-auto font-normal hover:bg-primary/10 hover:text-foreground"
+              onClick={() => onAnswer(index)}
+            >
               {option}
             </Button>
           ))}
@@ -97,12 +105,10 @@ export default function Question({
           <Button onClick={onGoBack} disabled={isFirstQuestion}>
             Go Back
           </Button>
-          <Button onClick={onSubmit}>
-            Submit Early
-          </Button>
+          <Button onClick={onSubmit}>Submit Early</Button>
         </div>
       </div>
-    )
+    );
   }
 
   // CASE 3: Standard Question (may include diagram in question text via markdown)
@@ -113,13 +119,16 @@ export default function Question({
       </span>
       <h2 className="font-bold text-sm">{id}</h2>
       <div className="font-medium">
-        <Markdown>
-          {question}
-        </Markdown>
+        <Markdown>{question}</Markdown>
       </div>
       <div className="grid grid-cols-1 gap-2">
         {options.map((option, index) => (
-          <Button key={index} variant="outline" className="bg-white dark:bg-background justify-start text-left text-wrap py-4 h-auto font-normal hover:bg-primary/10 hover:text-foreground" onClick={() => onAnswer(index)}>
+          <Button
+            key={index}
+            variant="outline"
+            className="bg-white dark:bg-background justify-start text-left text-wrap py-4 h-auto font-normal hover:bg-primary/10 hover:text-foreground"
+            onClick={() => onAnswer(index)}
+          >
             <Markdown>{option}</Markdown>
           </Button>
         ))}
@@ -128,11 +137,8 @@ export default function Question({
         <Button onClick={onGoBack} disabled={isFirstQuestion}>
           Go Back
         </Button>
-        <Button onClick={onSubmit}>
-          Submit Early
-        </Button>
+        <Button onClick={onSubmit}>Submit Early</Button>
       </div>
     </div>
-  )
+  );
 }
-
