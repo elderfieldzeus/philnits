@@ -1791,7 +1791,8 @@ Sales (form number, sales date, product name, user ID, store number, sales amoun
   },
   {
     "id": "2021S_FE_AM_30",
-    "question": "Which of the following is the response time when a client and server at different locations communicate under the conditions below? Here, the response time is in seconds and starts from the moment the client sends a message until a response is received from the server. 1 MB is 10^6 bytes. The propagation delay between the client and server can be ignored.",
+    "question": `Which of the following is the response time when a client and server at different locations communicate under the conditions below? Here, the response time is in seconds and starts from the moment the client sends a message until a response is received from the server. 1 MB is 10^6 bytes. The propagation delay between the client and server can be ignored.,
+    ![Image](Files/2021-30.png)`,
     "options": ["1.4","3.8","5.0","5.8"],
     "correctAnswer": 3,
     "solution": `### Step 1: Get the given
